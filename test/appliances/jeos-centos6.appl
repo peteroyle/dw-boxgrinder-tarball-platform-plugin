@@ -1,0 +1,17 @@
+name: jeos-centos6
+os:
+  name: centos
+  version: 6
+packages:
+  - screen
+  - vim
+files:
+  "/opt":
+    - "../dw-boxgrinder-tarball-platform-plugin/test/files/file01.txt"
+    - "test/files/file02.txt"
+  "/opt/somewhere/special":
+    - "test/files/path"
+post:
+  base:
+    - "echo '4.3.2.1 gateway' >> /etc/hosts"
+    - "echo '4.3.2.2 dns' >> /etc/hosts"

@@ -16,3 +16,6 @@ tmp
 .yardoc
 _yardoc
 doc/
+lib/guestfs.rb
+lib/libvirt.rb
+
