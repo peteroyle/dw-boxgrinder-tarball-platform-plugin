@@ -1,9 +1,16 @@
 # dw-boxgrinder-tarball-platform-plugin
 
-This platform plugin generates an archive payload which can be uploaded to a 
-physical machine with a minimal install and executed to create a physical
-installation of a virtual machine definition. This can be useful eg: when your 
-test environment is virtualised but parts of your production environment are not.
+This BoxGrinder platform plugin generates a compressed tarball which can be uploaded 
+to a host with a minimal OS install. When extracted the payload will place the files
+from your "files:" section into the appropriate directories and will place 
+a script in the root directory which can install all of your "packages:" and
+execute your "post: base:" commands. 
+
+In other words, it provides a way to customise an existing minimal OS install 
+according to a BoxGrinder appliance definition. This can be useful eg: when your 
+test environment is virtualised but parts of your production/staging environment are not,
+or if your VM hosting providers only allow pre-configured images to be used
+and you can't build your hosted images from scratch.
 
 ## Installation
 

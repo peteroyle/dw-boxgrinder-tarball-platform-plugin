@@ -19,3 +19,4 @@ doc/
 lib/guestfs.rb
 lib/libvirt.rb
 
+/nbproject/private/

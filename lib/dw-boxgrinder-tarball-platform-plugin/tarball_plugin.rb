@@ -33,8 +33,6 @@ module BoxGrinder
       register_deliverable(
         :tarball => @tar_name
       )
-      register_supported_os('centos', ["4", "5", "6"])
-      register_supported_os('fedora', ["15", "16"])
     end
     
     def execute
@@ -51,7 +49,11 @@ module BoxGrinder
       
       # collect all post->base commands and create an install script to add to the payload
       install_post_script_name = "install_post.sh"
-      create_script(install_post_script_name, :lines => @appliance_config.post['base']) {|line|
+      boxgrinder_env = ["# more BoxGrinder-like environment", "export PATH=$PATH:/sbin/:/usr/sbin/", ""]
+      reboot_warning = "echo 'It is highly recommended that you reboot this matchine now before proceeding, as that is more in line with the natural BoxGrinder VM creation process.'"
+      lines = boxgrinder_env | @appliance_config.post['base']
+      lines << reboot_warning
+      create_script(install_post_script_name, :lines => lines) {|line|
         "#{line}\n"
       }
       
