@@ -16,6 +16,7 @@ require 'zlib'
 require 'archive/tar/minitar'
 require 'archive/tar/minitar/command'
 require 'set'
+require 'dw-boxgrinder-tarball-platform-plugin/rpm_helper'
 
 
 module BoxGrinder
@@ -24,6 +25,7 @@ module BoxGrinder
     plugin :type => :platform, :name => :tarball, :full_name  => "Tarball"
 
     include FileUtils
+    include RpmHelper
     include Archive::Tar
 
     attr_accessor :appliance_config, :log, :dir, :plugin_info
@@ -40,6 +42,9 @@ module BoxGrinder
       # Create a temporary directory to work from
       @working_dir = "#{@dir.tmp}"
       mkdir_p(@working_dir)
+      
+      # add custom repos into the /etc/yum.repos.d dir
+      install_repos(tmp_path(''))
       
       # collect the RPMs and create an install_rpms.sh script to add to the payload
       install_rpms_script_name = "install_rpms.sh"
@@ -84,6 +89,11 @@ module BoxGrinder
           sgz = Zlib::GzipWriter.new(File.open(@tar_name, 'wb'))
           tar = Archive::Tar::Minitar::Output.new(sgz)
           uniq_entries = Set.new
+          # add custom repo definitions
+          @appliance_config.repos.each do |repo|
+            Minitar.pack_file("#{$YUM_REPOS_DIR}/#{repo['name']}.repo", tar) 
+          end
+          # add all files from the "files:" section
           for tgt_dir in @appliance_config.files.keys
             # remove leading slashes for relative paths
             tgt_rel = "#{tgt_dir.scan(/[\\\/]*(.*)/)}"

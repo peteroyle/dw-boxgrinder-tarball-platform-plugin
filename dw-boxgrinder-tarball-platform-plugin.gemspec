@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.date = %q{2012-05-21}
   s.description = %q{BoxGrinder Build Tarball Platform Plugin}
   s.email = %q{howardmoon@screamingcoder.com}
-  s.extra_rdoc_files = ["CHANGELOG", "lib/dw-boxgrinder-tarball-platform-plugin.rb", "lib/dw-boxgrinder-tarball-platform-plugin/tarball_plugin.rb"]
-  s.files = ["CHANGELOG", "Rakefile", "lib/dw-boxgrinder-tarball-platform-plugin.rb", "lib/dw-boxgrinder-tarball-platform-plugin/tarball_plugin.rb", "dw-boxgrinder-tarball-platform-plugin.gemspec"]
+  s.extra_rdoc_files = ["CHANGELOG", "lib/dw-boxgrinder-tarball-platform-plugin.rb", "lib/dw-boxgrinder-tarball-platform-plugin/tarball_plugin.rb", "lib/dw-boxgrinder-tarball-platform-plugin/rpm_helper.rb"]
+  s.files = ["CHANGELOG", "Rakefile", "lib/dw-boxgrinder-tarball-platform-plugin.rb", "lib/dw-boxgrinder-tarball-platform-plugin/tarball_plugin.rb", "lib/dw-boxgrinder-tarball-platform-plugin/rpm_helper.rb", "lib/dw-boxgrinder-tarball-platform-plugin/src/base.repo", "dw-boxgrinder-tarball-platform-plugin.gemspec"]
   s.homepage = %q{http://www.digitalworx.com.au}
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "dw-boxgrinder-tarball-platform-plugin"]
   s.require_paths = ["lib"]

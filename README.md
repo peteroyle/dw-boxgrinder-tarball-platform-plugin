@@ -35,6 +35,12 @@ be found). A fix for that is being investigated.
 If you have platform-specific "post" instructions they will be ignored by this plugin.
 We have no need for such functionality, though pull requests to implement it would be welcomed.
 
+## Building
+
+To build the gem from source:
+
+    gem build dw-boxgrinder-tarball-platform-plugin.gemspec
+
 ## Copyright
 
 Copyright (c) 2012 Digital Worx Aus. See LICENSE file for

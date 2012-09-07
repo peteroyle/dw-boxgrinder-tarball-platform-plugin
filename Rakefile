@@ -7,13 +7,13 @@ require 'rake/rdoctask'
 require 'rake/testtask'
 
 spec = Gem::Specification.new do |s|
-  s.name = 'SamplePlugin'
-  s.version = '0.0.1'
+  s.name = 'DWBoxgrinderTarballPlatformPlugin'
+  s.version = '0.0.2'
   s.has_rdoc = true
   s.extra_rdoc_files = ['README', 'LICENSE']
-  s.summary = 'Your summary here'
+  s.summary = 'A way to customise an existing minimal OS install according to a BoxGrinder appliance definition'
   s.description = s.summary
-  s.author = ''
+  s.author = 'Peter Royle'
   s.email = ''
   # s.executables = ['your_executable_here']
   s.files = %w(LICENSE README Rakefile) + Dir.glob("{bin,lib,spec}/**/*")
@@ -31,7 +31,7 @@ Rake::RDocTask.new do |rdoc|
   files =['README', 'LICENSE', 'lib/**/*.rb']
   rdoc.rdoc_files.add(files)
   rdoc.main = "README" # page to start on
-  rdoc.title = "SamplePlugin Docs"
+  rdoc.title = "DWBoxgrinderTarballPlatformPlugin Docs"
   rdoc.rdoc_dir = 'doc/rdoc' # rdoc output folder
   rdoc.options << '--line-numbers'
 end
