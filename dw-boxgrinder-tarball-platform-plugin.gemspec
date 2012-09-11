@@ -1,10 +1,10 @@
 Gem::Specification.new do |s|
   s.name = %q{dw-boxgrinder-tarball-platform-plugin}
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Pete Royle"]
-  s.date = %q{2012-05-21}
+  s.date = %q{2012-09-11}
   s.description = %q{BoxGrinder Build Tarball Platform Plugin}
   s.email = %q{howardmoon@screamingcoder.com}
   s.extra_rdoc_files = ["CHANGELOG", "lib/dw-boxgrinder-tarball-platform-plugin.rb", "lib/dw-boxgrinder-tarball-platform-plugin/tarball_plugin.rb", "lib/dw-boxgrinder-tarball-platform-plugin/rpm_helper.rb"]

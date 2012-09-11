@@ -91,7 +91,7 @@ module BoxGrinder
           uniq_entries = Set.new
           # add custom repo definitions
           @appliance_config.repos.each do |repo|
-            Minitar.pack_file("#{$YUM_REPOS_DIR}/#{repo['name']}.repo", tar) 
+            Minitar.pack_file("#{$YUM_REPOS_DIR}/#{repo['name']}.repo", tar) if repo['ephemeral'] == false
           end
           # add all files from the "files:" section
           for tgt_dir in @appliance_config.files.keys
