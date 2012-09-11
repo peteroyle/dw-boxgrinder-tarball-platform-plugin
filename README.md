@@ -21,7 +21,7 @@ and you can't build your hosted images from scratch.
     boxgrinder-build your_appliance.appl -p tarball -l dw-boxgrinder-tarball-platform-plugin
     
 After the build has finished, you'll find the payload archive under 
-build/appliances/x86_64/centos/6/your_appliance/1.0/your_appliance.tgz
+build/appliances/<arch>/<os>/<version>/<appliance-name>/<appliance_version>/tarball-plugin/<appliance-name>.tgz
 
 Copy this file into the root directory of you target host, untar it (tar -zxvf your_appliance.tgz)
 and run the "install.sh" file (sh install.sh).
@@ -31,6 +31,10 @@ and run the "install.sh" file (sh install.sh).
 This plugin currently only works when BoxGrinder is executed from within the directory 
 containing your .appl file(s) (otherwise the files in your "files:" section won't 
 be found). A fix for that is being investigated.
+
+This plugin does not support ephemeral repositories and will simply ignore them when adding
+repos to the tarball payload. Any RPMs from ephemeral repos will cause the install_rpms.sh 
+script in the tarball payload to fail.
 
 If you have platform-specific "post" instructions they will be ignored by this plugin.
 We have no need for such functionality, though pull requests to implement it would be welcomed.
